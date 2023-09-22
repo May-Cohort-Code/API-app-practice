@@ -49,6 +49,9 @@ Now, set up a route that will recieve a request and as a response send back all 
 This route should recieve the id of the beer to be edited in the url and should also recieve the new data for the beer in the body of the request.
 Once this information is recieved the route should update the information for the document and in the response should send back the updated beer.
 
+**HINT**
+- Remember that by default findByIdAndUpdate() method returns the old document and not the updated document (Hint: {new:true})
+
 ### Iteration 4: Create the DELETE route to delete a single beer
 
 Finally, to complete our CRUD operations we need a DELETE route to a single beer. This route should recieve the id of the beer to be deleted in the url of the request. The response should be an object as follows: {message: "Beer Successfully Deleted"}
