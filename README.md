@@ -16,9 +16,9 @@ Endpoints:
 | Method | Endpoint            | Response (200)                                         | Action                                                                                                                                  |
 | ------ | ------------------- | ------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------- |
 | GET    | /beers              | [beers]                                                | Get all the beers from the DB                                                                                                           |
-| POST   | /beers              | { newBeer }                                               | Get the a single/specific beer                                                                                                          |
-| PUT    | /beers/:id          | { updatedBeer }                                               | Get a random beer from the DB                                                                                                           |
-| DELETE | /beers/:id          |  {message: "Beer Successfully Deleted"}  | Create a new beer (the fields are specified in the instructions)                                                                        |
+| POST   | /beers              | { newBeer }                                               | create a new beer                                                                                                          |
+| PUT    | /beers/:id          | { updatedBeer }                                               | update the value of an existing beer                                                                                                           |
+| DELETE | /beers/:id          |  {message: "Beer Successfully Deleted"}  | Delete existing beer                                                                       |
 | GET    | /search?q=`{query}` | [beers]                                                | Get beers from the DB whose name contains the search term. For example `/search?q=lager` searches for all beers with lager in the name. |
 
 
