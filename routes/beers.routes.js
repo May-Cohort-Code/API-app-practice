@@ -50,16 +50,32 @@ router.put('/beers/:id', (req, res) => {
   const { id } = req.params;
   const { image_url, name, tagline, first_brewed, description, attenuation_level, brewers_tips } = req.body;
 
-  const trimmedId = id.trim();
-
-  if (!mongoose.Types.ObjectId.isValid(trimmedId)) {
+  if (!mongoose.Types.ObjectId.isValid(id.trim())) {
     return res.status(400).json({ message: 'Invalid ObjectId format.' });
   }
 
-  Beer.findByIdAndUpdate(trimmedId, { image_url, name, tagline, first_brewed, description, attenuation_level, brewers_tips }, { new: true })
+  Beer.findByIdAndUpdate(id.trim(), { image_url, name, tagline, first_brewed, description, attenuation_level, brewers_tips }, { new: true })
     .then((updateBeer) => {
       console.log(updateBeer);
       res.json(updateBeer);
+    })
+    .catch((err) => {
+      res.json(err);
+    });
+});
+
+// DELETE
+
+router.delete('/beers/:id', (req, res) => {
+  const { id } = req.params;
+  if (!mongoose.Types.ObjectId.isValid(id.trim())) {
+    return res.status(400).json({ message: 'Invalid ObjectId format.' });
+  }
+
+  Beer.findByIdAndDelete(id.trim())
+    .then((deleteBeer) => {
+      console.log(deleteBeer);
+      res.json({ message: 'Beer Successfully Deleted' });
     })
     .catch((err) => {
       res.json(err);
