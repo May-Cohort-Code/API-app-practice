@@ -49,3 +49,10 @@ Once this information is recieved the route should update the information for th
 ### Iteration 4: Create the DELETE route to delete a single beer
 
 Finally, to complete our CRUD operations we need a DELETE route to a single beer. This route should recieve the id of the beer to be deleted in the url of the request. The response should be an object as follows: {message: "Beer Successfully Deleted"}
+
+Bonus: Iteration 5: Search Beers Endpoint
+Create a route that recieves a string in the url of the request. If any of the beers in our database contain that string then this route should return those beers.
+
+HINT:
+
+once you recieve the request with the dynamic parameter query the database using the $regex operator
